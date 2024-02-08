@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Uploader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        label {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #result {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Uploader</h1>
+        <form id="uploadForm">
+            <label for="resumeInput">Upload Resume</label>
+            <input type="file" id="resumeInput" accept=".pdf" onchange="handleFileUpload()">
+            <input type="text" id="nameInput" placeholder="Name" readonly>
+            <input type="text" id="emailInput" placeholder="Email" readonly>
+        </form>
+        <p id="result"></p>
+    </div>
+    <script>
+        function handleFileUpload() {
+            const resumeInput = document.getElementById("resumeInput");
+            const nameInput = document.getElementById("nameInput");
+            const emailInput = document.getElementById("emailInput");
+
+            if (resumeInput.files.length > 0) {
+                const file = resumeInput.files[0];
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const text = e.target.result;
+                    const nameMatch = /Name:\s+(.+)/.exec(text);
+const emailMatch = /Email:\s+(.+)/.exec(text);
+                    
+
+                    if (nameMatch) {
+                        nameInput.value = nameMatch[1];
+                    }
+                    if (emailMatch) {
+                        emailInput.value = emailMatch[1];
+                    }
+
+                    if (nameMatch || emailMatch) {
+                        document.getElementById("result").textContent = "Name and email auto-filled.";
+                    } else {
+                        document.getElementById("result").textContent = "No name and email found in the resume.";
+                    }
+                };
+
+                reader.readAsText(file);
+            }
+        }
+    </script>
+</body>
+</html>

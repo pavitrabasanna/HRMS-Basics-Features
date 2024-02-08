@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script>
+        function loginDetails() {
+            // Get the username and password input values
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Perform your authentication logic here (e.g., check against a database)
+            // For this example, we'll use a simple condition
+            if (username === "admin" && password === "admin") {
+                // Redirect to another HTML page upon successful login
+                window.location.href = "dashboard.html";
+            } else {
+                // Display an error message or handle failed login attempts
+                alert("Invalid username or password");
+            }
+        }
+    </script>
+</head>
+<body style="background-color:beige;">
+    <div>
+        
+    </div>
+  
+    <div class="div1">
+        <img src="Amj logo.jpeg" style="margin-left: 20%;"  >
+        <form>
+            <p>LOGIN</p>
+            <table style="margin-left:2%";>
+                <tr>
+                    <td><label>Username</label></td>
+                    <td><input type="text" name="username" id="username"></td>
+                </tr>
+                <tr>
+                    <td><label>Password</label></td>
+                    <td><input type="password" name="Password" id="password"></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="loginDetails()">LOGIN</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

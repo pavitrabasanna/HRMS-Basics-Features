@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Login ID and Password Generator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Generate Login ID and Password</h1>
+    <form id="loginGeneratorForm">
+        <label for="employee_name">Your Name:</label>
+        <input type="text" id="employee_name" required><br><br>
+
+        <label for="employee_id">Employee ID:</label>
+        <input type="text" id="employee_id" required><br><br>
+
+        <label for="employee_email">Email Address:</label>
+        <input type="email" id="employee_email" required><br><br>
+
+        <button type="submit">Generate Login</button>
+    </form>
+
+    <div id="loginInfo" class="hidden">
+        <h2>Login Information</h2>
+        <p>Login ID: <span id="login_id"></span></p>
+        <p>Password: <span id="password"></span></p>
+    </div>
+
+    <script src="script.js">
+        document.getElementById("loginGeneratorForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = document.getElementById("employee_name").value;
+    const id = document.getElementById("employee_id").value;
+    const email = document.getElementById("employee_email").value;
+
+    // Generate a login ID (e.g., based on the employee's name and ID)
+    const loginID = name.replace(/\s/g, '_') + id;
+
+    // Generate a random password (you can use a more secure method)
+    const password = generateRandomPassword();
+
+    // Display the login ID and password
+    document.getElementById("login_id").textContent = loginID;
+    document.getElementById("password").textContent = password;
+
+    // Show the login information
+    const loginInfo = document.getElementById("loginInfo");
+    loginInfo.classList.remove("hidden");
+});
+
+function generateRandomPassword() {
+    // Implement your own password generation logic here
+    // For example, you can use a library like bcrypt.js for secure password hashing
+    return "YourSecurePassword123";
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HRMS - Employee Management</title>
+    <style>
+        /* Basic CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #employee-list {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #employee-list th, #employee-list td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        #employee-form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        #employee-form input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #employee-form input[type="button"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HRMS - Employee Management</h1>
+
+        <h2>Add Employee</h2>
+        <div id="employee-form">
+            <input type="text" id="name" placeholder="Employee Name">
+            <input type="text" id="code" placeholder="code">
+            <input type="text" id="name compy" placeholder="name of company">
+            <input type="text" id="department" placeholder="department">
+            <input type="text" id="date" placeholder="date of joining">
+            <input type="text" id="date confirm" placeholder="date of confirmation">
+            <input type="text" id="name" placeholder="Employee Name">
+            <input type="text" id="code" placeholder="code">
+            <input type="text" id="name compy" placeholder="name of company">
+            <input type="text" id="department" placeholder="department">
+            <input type="text" id="date" placeholder="date of joining">
+            <input type="text" id="date confirm" placeholder="date of confirmation">
+            <input type="button" value="Add Employee" onclick="addEmployee()">
+        </div>
+
+        <h2>Employee List</h2>
+        <table id="employee-list">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>employee code</th>
+                    <th>name of company</th>
+                    <th>department</th>
+                    <th>date of joining</th>
+                    <th>date of confirmation</th> 
+                    
+                </tr>
+            </thead>
+            <tbody id="employee-records">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // JavaScript code for employee management
+        function addEmployee() {
+            var name = document.getElementById("name").value;
+            var empcode = document.getElementById("code").value;
+            var nameofcompy = document.getElementById("name compy").value;
+            var department = document.getElementById("department").value;
+            var dateofjoin = document.getElementById("date").value;
+            var doc= document.getElementById("date confirm").value;
+
+
+            var employeeList = document.getElementById("employee-records");
+            var newRow = employeeList.insertRow(employeeList.rows.length);
+
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            
+            var cell4 = newRow.insertCell(3);
+            var cell5 = newRow.insertCell(4);
+            var cell6 = newRow.insertCell(5);
+
+
+            cell1.innerHTML = name;
+            cell2.innerHTML = empcode;
+            cell3.innerHTML = nameofcompy;
+            cell4.innerHTML =department ;
+            cell5.innerHTML = dateofjoin;
+            cell6.innerHTML = doc;
+
+            // Clear input fields
+            document.getElementById("name").value = '';
+            document.getElementById("code").value = '';
+            document.getElementById("name compy").value = '';
+            document.getElementById("department").value = '';
+            document.getElementById("date").value = '';
+            document.getElementById("date cofirm").value = '';
+        
+        }
+    </script>
+</body>
+</html>

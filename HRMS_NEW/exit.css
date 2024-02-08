@@ -1,0 +1,37 @@
+p{
+    font-size: 30px;
+    color:darkblue;
+}
+
+label{
+    width: 20%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+.submit-button{
+    background-color: #28a745;    ;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    padding:5px;
+    width: 15%;
+ 
+}
+.save-button{
+    background-color: dodgerblue;    ;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    padding:5px;
+    width: 15%;
+  
+}
+.cancel-button{
+    background-color: white;    ;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    padding:5px;
+    width: 15%;
+  
+}

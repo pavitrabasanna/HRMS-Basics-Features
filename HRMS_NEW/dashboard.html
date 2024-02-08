@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://www.google.com/url?sa=i&url=https%3A%2F%2Famjteam.com%2Fit-services&psig=AOvVaw2XOekPSFvTvsOdPxywCQ1x&ust=1696600011784000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCPiq99mF34EDFQAAAAAdAAAAABAE">
+  <link rel="stylesheet" href="stylee.css">
+</head>
+
+<body style="background-color: beige;">
+  <div class="container">
+    <!-----header----->
+    <header class="header">
+      <div class="menu-icon" onclick="opensidebar()">
+        <span class="material-icons-outlined">menu</span>
+      </div>
+      <div class="header-left">
+        <span class="material-icons-outlined">search</span>
+
+      </div>
+      <div calss="header-right">
+        <span class="material-icons-outlined">notifications</span>
+        <span class="material-icons-outlined"> email</span>
+        <span class="material-icons-outlined">account_circle</span>
+
+      </div>
+
+    </header>
+    <!-----sidebar---->
+    <aside id="sidebar">
+      <div class="sidebar-title">
+
+        <div class="sidebar-brand">
+          <span class="material-icons-outlined">image</span> AMJTEAM
+        </div>
+        <span class="material-icons-outlined" onclick="closesidebar()">close</span>
+
+      </div>
+      <ul class="sidebar-list">
+        <li class="sidebar-list-item">
+          <span class="material-icons-outlined">dashboard</span> <a href="dashboard.html">  DASHBOARD </a>
+        </li>
+        <br>
+        <li class="sidebar-list-item">
+          <span class="material-icons-outlined">settings</span>  <a href="changepassword.html"> Settings</a>
+        </li>
+        <br>
+        <li class="sidebar-list-item">
+          <span class="material-icons-outlined"> cases</span>Cases
+        </li>
+        <br>
+        <li class="sidebar-list-item"><span class="material-icons-outlined">report</span> Report
+
+        </li>
+        <br>
+        <li class="sidebar-list-item">
+          <span class="material-icons-outlined">people</span> People
+
+        </li>
+        <br>
+
+      </ul>
+
+    </aside>
+    <!----------Main-------------->
+    <main class="main-container">
+      <div class="main-title">
+        <p class="font-weight-bold">DASHBOARD</p>
+      </div>
+      <div class="main-cards">
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary"><center>
+              <img src="image1.jpeg" style="height: 80px;"><br> <a href="employee_tab.html">
+              EMPLOYEE MANAGEMENT</p></a>
+            </center>
+
+          </div>
+
+        </div>
+
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary" style="margin-left: 50px;">
+              <img src="department.jpeg" style="height: 70px; width:60%; margin-left: 20px;"><br><a href="department_tab.html">
+           DEPARTMENT</p></a>
+          </div>
+
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary" style="margin-left: 40px;">
+              <img src="image2.jpeg" style="height: 60px; width:40%; margin-left: 20px;"><br><a href="Attendance.html">
+            ATTENDENCE MANAGEMENT</p></a>
+
+          </div>
+
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary" style="margin-left: 90px;">
+              <img src="designation.jpeg" style="height: 60px;margin-left:1px;"><br><a href="task.html">
+           TASK</p></a>
+         </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary" style="margin-left: 30px;">
+              <img src="ann_logo.jpeg" style="height: 60px;margin-left:40px;"><br><a href="anouncement.html">
+           ANNOUNCEMENT</p></a>
+         </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary" style="margin-left: 30px;">
+              <img src="document.jpeg" style="height: 60px;margin-left: 20px;"><br><a href="documents.html">
+                &nbsp&nbsp DOCUMENTS MANAGEMENT
+        </p></a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary" style="margin-left: 40px;">
+              <img src="leavemanagement.jpeg" style="height: 70px;margin-left: 22px;"><br><a href="Leave.html">
+                &nbsp&nbsp&nbsp&nbsp&nbsp LEAVE MANAGEMENT
+
+              </p></a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary" style="margin-left: 40px;">
+              <img src="payroll.jpeg" style="height: 80px;margin-left:35px;"><br><a href="payroll.html">
+                &nbsp&nbsp&nbsp&nbsp&nbsp PAYROLL</p></a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary" style="margin-left: 35px;">
+              <img src="recruitlogo.jpeg" style="height: 80px;margin-left:35px;"><br><a href="add_job.html">
+                RECRUITMENT & ONBOARDING PROCESS</p></a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary" style="margin-left: 40px;">
+              <img src="performlogo.jpeg" style="height: 80px;margin-left:35px;"><br><a href="perf_category.html">
+                PERFORMANCE MANAGEMENT</p></a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary" style="margin-left: 40px;">
+              <img src="exit.jpeg" style="height: 80px;margin-left:15px;"><br><a href="exit.html">
+                &nbsp&nbsp&nbsp&nbsp&nbsp EXIT MANAGEMENT</p></a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary" style="margin-left: 50px;">
+              <img src="s&acccon.jpeg" style="height: 80px;margin-left:10px;"><br><a href="security_tab.html">
+                &nbsp&nbsp&nbsp&nbsp&nbsp SECURITY & ACCESSCONTROL</p></a>
+          </div>
+        </div>
+
+        
+      </div>
+
+    </main>
+
+    <!--------------END main-------->
+  </div>
+  <!-------------Scripts-------->
+  <!------------------ApexCharts----------->
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>PDF Text Extraction</title>
+  <style>
+    #upload-form {
+      text-align: center;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Auto-fill Name and Email from Uploaded PDF</h1>
+  <form id="upload-form">
+    <input type="file" id="pdf-file" accept=".pdf">
+    <button type="button" onclick="extractInfo()">Extract Info</button>
+  </form>
+  <div id="info">
+    <p><strong>Name:</strong> <span id="name"></span></p>
+    <p><strong>Email:</strong> <span id="email"></span></p>
+    <p><strong>Address:</strong> <span id="address"></span></p>
+    <p><strong>phone:</strong> <span id="phone"></span></p>
+
+
+  </div>
+
+  <script>
+    function extractInfo() {
+        
+  const fileInput = document.getElementById('pdf-file');
+  const nameElement = document.getElementById('name');
+  const emailElement = document.getElementById('email');
+  const addressElement = document.getElementById('address');
+  const phoneElement = document.getElementById('phone');
+  
+
+  const file = fileInput.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = async function (e) {
+      const arrayBuffer = e.target.result;
+
+      // Use a PDF parsing library to extract text content from the PDF.
+      // For this example, we'll use pdf.js.
+      const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
+      const page = await pdf.getPage(1); // Assuming you want to extract from the first page.
+
+      const textContent = await page.getTextContent();
+      const text = textContent.items.map(item => item.str).join(' ');
+
+      // You can implement more sophisticated text parsing to extract name, email, and address phone.
+      const nameMatch = text.match(/Name: (.+?)( |$)/);
+      const emailMatch = text.match(/Email: ([\w.-]+@[\w.-]+)/);
+      const addressMatch = text.match(/Address: (.+?)( |$)/);
+      const phonrMatch = text.match(/Phone: ([\w.-]+@[\w.-]+)/);
+      if (nameMatch) {
+        nameElement.textContent = nameMatch[1];
+      } else {
+        nameElement.textContent = 'Not found';
+      }
+
+      if (emailMatch) {
+        emailElement.textContent = emailMatch[1];
+      } else {
+        emailElement.textContent = 'Not found';
+      }
+
+      if (addressMatch) {
+        addressElement.textContent = addressMatch[1];
+      } else {
+        addressElement.textContent = 'Not found';
+      }
+      if (phoneMatch) {
+        addressElement.textContent = phoneMatch[1];
+      } else {
+        phoneElement.textContent = 'Not found';
+      }
+    };
+
+    reader.readAsArrayBuffer(file);
+  }
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+</body>
+</html>     

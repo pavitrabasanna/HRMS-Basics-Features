@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Uploader</title>
+</head>
+<body>
+    <form id="resumeForm" enctype="multipart/form-data">
+        <input type="file" id="resumeInput" accept=".pdf" name="resume">
+        <button type="button" id="autoFillButton">Auto-fill</button>
+    </form>
+
+    <div id="autoFillSection">
+        <h2>Auto-filled Resume Details</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+
+        <!-- Add more fields as needed (e.g., email, address, etc.) -->
+    </div>
+
+    <script src="resume.js"></script>
+</body>
+</html>

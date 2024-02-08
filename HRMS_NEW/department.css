@@ -1,0 +1,19 @@
+td{
+    width: 30%;
+    padding-bottom: 20px;
+}
+button{
+    margin-left: 50%;
+    background-color: #17175f;
+    color: white;
+    padding: 2%;
+
+}
+p{
+    color:purple;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    text-align: center;
+    margin-top: 20%;
+   
+   }

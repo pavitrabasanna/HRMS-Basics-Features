@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Process Management Example</title>
+    <script>
+        function processForm() {
+            // Get values from the form
+            var firstName = document.getElementById("first_name").value;
+            var lastName = document.getElementById("last_name").value;
+
+            // Perform some processing (e.g., concatenating names)
+            var fullName = firstName + " " + lastName;
+
+            // Display the result
+            document.getElementById("result").innerHTML = "Full Name: " + fullName;
+        }
+    </script>
+</head>
+<body>
+    <h1>Process Management Example</h1>
+    <form>
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name"><br><br>
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name"><br><br>
+
+        <input type="button" value="Process" onclick="processForm()">
+    </form>
+
+    <div id="result"></div>
+</body>
+</html>

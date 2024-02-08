@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="employee.css">
+    <link rel="stylesheet" href="attendance_mark.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://www.google.com/url?sa=i&url=https%3A%2F%2Famjteam.com%2Fit-services&psig=AOvVaw2XOekPSFvTvsOdPxywCQ1x&ust=1696600011784000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCPiq99mF34EDFQAAAAAdAAAAABAE">
+    <link rel="stylesheet" href="stylee.css">
+</head>
+<body>
+    <body style="background-color: beige;">
+        <div style="float: left;"> 
+    <aside id="sidebar" style="width: 100%;">
+        <div class="sidebar-title" >
+  
+          <div class="sidebar-brand">
+            <span class="material-icons-outlined">image</span> AMJTEAM
+          </div>
+          <span class="material-icons-outlined" onclick="closesidebar()">close</span>
+  
+        </div>
+        <ul class="sidebar-list">
+            <li class="sidebar-list-item">
+              <span class="material-icons-outlined">dashboard</span> <a href="dashboard.html">  Dashboard </a>
+            </li>
+            <br>
+            <li class="sidebar-list-item">
+              <span class="material-icons-outlined">add</span> <a href="attendance_mark.html"> Attendance </a>
+            </li>
+            <br>
+            <li class="sidebar-list-item">
+              <span class="material-icons-outlined">add</span> <a href="DailyAttendance.html">Daily Attendance Report</a>
+            </li>
+            <br>
+            <li class="sidebar-list-item">
+              <span class="material-icons-outlined"> add </span> <a href="MonthlyAttendance.html">Monthly Attendance Report</a>
+            </li>
+            <br>
+            <li class="sidebar-list-item"><span class="material-icons-outlined">report</span> Report
+    
+            </li>
+            <br>
+            <li class="sidebar-list-item">
+              <span class="material-icons-outlined">people</span> People
+    
+            </li>
+            <br>
+    
+          </ul>
+      </aside>
+      <!----------Main-------------->
+      
+    <script src="script.js"></script>
+</div>
+       
+            <div class="card" style="width: 60%; margin-left: 30%;">
+                <div class="card-body">
+                    <button  class="btn btn-success"style="margin-left: 80%;" id="toggleButton" onclick="recordTime()" >Check-in</button>
+                </div>
+            </div>
+
+
+    <br><br>  <br><br>
+    <div id="recordedTimes"></div>
+    <table id="reportTable" style="margin-left: 30%;">
+        <th>
+            <tr style="border: 2px solid;">
+                <th>Date</th>
+                <th>Check-in Time</th>
+                <th>Check-out Time</th>
+            </tr>
+        </th>
+        <tbody id="reportBody"></tbody>
+    </table>
+
+    <script>
+        const recordedTimes = [];
+        let isCheckedIn = false;
+        let currentRecord = null;
+
+        function updateButtonText() {
+            const button = document.getElementById("toggleButton");
+            button.textContent = isCheckedIn ? "Check-out" : "Check-in";
+        }
+
+        function recordTime() {
+            const now = new Date();
+            const date = now.toLocaleDateString();
+            const timeString = now.toLocaleTimeString();
+
+            if (isCheckedIn) {
+                currentRecord.checkOutTime = timeString;
+            } else {
+                currentRecord = { date, checkInTime: timeString, checkOutTime: "" };
+                recordedTimes.push(currentRecord);
+            }
+
+            isCheckedIn = !isCheckedIn;
+            updateButtonText();
+            displayReport();
+        }
+
+        function displayReport() {
+            const reportBody = document.getElementById("reportBody");
+            reportBody.innerHTML = "";
+
+            for (const record of recordedTimes) {
+                const { date, checkInTime, checkOutTime } = record;
+
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${date}</td>
+                    <td>${checkInTime}</td>
+                      <td>${checkOutTime}</td>
+                `;
+                reportBody.appendChild(row);
+            }
+        }
+
+        updateButtonText();
+    </script>
+   
+</body>
+</html>
